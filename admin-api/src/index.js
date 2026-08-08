@@ -1,4 +1,4 @@
-// UDSG Admin Panel — API (Cloudflare Worker + D1)
+// Pahlass Admin Panel — API (Cloudflare Worker + D1)
 // Rutas:
 //   POST   /api/login          { password }              -> set-cookie de sesión
 //   POST   /api/logout                                    -> borra la sesión
@@ -9,7 +9,7 @@
 //   DELETE /api/projects/:id                                -> elimina proyecto
 
 const SESSION_TTL_SECONDS = 60 * 60 * 12; // 12 horas
-const COOKIE_NAME = "udsg_session";
+const COOKIE_NAME = "pahlass_session";
 const VALID_STATUS = ["Solicitud", "Evaluación", "Desarrollo", "Entrega", "Completado"];
 const VALID_PRIORITY = ["Baja", "Normal", "Alta"];
 
@@ -143,7 +143,7 @@ async function sendRequestEmail(env, data) {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from: "UDSG <onboarding@resend.dev>",
+      from: "Pahlass <onboarding@resend.dev>",
       to: [REQUEST_TO_EMAIL],
       reply_to: data.mail,
       subject,
@@ -202,7 +202,7 @@ export default {
         if (!org || !mailOk || !phone || desc.length < 20) {
           return json({ ok: false, error: "Revisa los campos del formulario." }, 400, cors);
         }
-        const folio = "UDSG-" + new Date().getFullYear() + "-" + String(Math.floor(1000 + Math.random() * 9000));
+        const folio = "PAHLASS-" + new Date().getFullYear() + "-" + String(Math.floor(1000 + Math.random() * 9000));
         try {
           await sendRequestEmail(env, { org, mail, phone, tipo, urgencia, desc, folio });
         } catch (err) {
@@ -238,7 +238,7 @@ export default {
         const status = VALID_STATUS.includes(body.status) ? body.status : "Solicitud";
         const priority = VALID_PRIORITY.includes(body.priority) ? body.priority : "Normal";
         const progress = Math.max(0, Math.min(100, Number(body.progress) || 0));
-        const ref = "UDSG-" + Date.now().toString(36).toUpperCase();
+        const ref = "PAHLASS-" + Date.now().toString(36).toUpperCase();
         const now = new Date().toISOString();
         const dueDate = typeof body.due_date === "string" && body.due_date ? body.due_date : null;
         await env.DB.prepare(

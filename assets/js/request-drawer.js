@@ -1,4 +1,4 @@
-// UDSG — panel lateral de "Iniciar un proyecto" (reemplaza la página /solicitar/)
+// Pahlass — panel lateral de "Iniciar un proyecto" (reemplaza la página /solicitar/)
 (function () {
   const overlay = document.getElementById('reqOverlay');
   const drawer = document.getElementById('reqDrawer');
@@ -100,7 +100,7 @@
         if (success) success.classList.add('is-active');
       } catch (err) {
         msg.style.color = '#B3261E';
-        msg.textContent = '> No se pudo enviar. Intenta de nuevo o escríbenos a acceso@udsg.dev.';
+        msg.textContent = '> No se pudo enviar. Intenta de nuevo o escríbenos a acceso@pahlass.com.';
         send.disabled = false; send.textContent = 'Enviar solicitud';
       }
     });

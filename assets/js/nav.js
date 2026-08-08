@@ -1,4 +1,4 @@
-// UDSG — comportamiento compartido del sitio (revelado en scroll, video decks, enlace activo)
+// Pahlass — comportamiento compartido del sitio (revelado en scroll, video decks, enlace activo)
 (function () {
   const reduceMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
