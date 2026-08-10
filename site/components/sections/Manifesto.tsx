@@ -5,7 +5,7 @@ import { manifesto } from "@/content/site";
 
 export function Manifesto() {
   return (
-    <section className="border-b border-line py-24 md:py-32">
+    <section className="border-b border-line bg-paper py-24 md:py-32">
       <Container>
         <Reveal>
           <SectionLabel>{manifesto.kicker}</SectionLabel>
@@ -18,10 +18,13 @@ export function Manifesto() {
           </p>
         </Reveal>
 
-        <div className="mt-14 grid grid-cols-1 gap-8 md:grid-cols-2 md:gap-14">
+        <div className="mt-16 grid grid-cols-1 gap-10 border-t border-line pt-12 md:grid-cols-3 md:gap-12">
           {manifesto.body.map((paragraph, i) => (
-            <Reveal key={i} delay={0.1 + i * 0.05}>
-              <p className="text-base leading-relaxed text-muted md:text-lg">
+            <Reveal key={i} delay={0.1 + i * 0.06}>
+              <span className="font-mono text-xs text-muted">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <p className="mt-4 text-base leading-relaxed text-muted md:text-[1.05rem]">
                 {paragraph}
               </p>
             </Reveal>
