@@ -19,8 +19,8 @@ export function Header() {
 
   return (
     <header
-      className={`sticky top-0 z-50 border-b transition-colors duration-300 ${
-        scrolled ? "border-line bg-paper/90 backdrop-blur" : "border-transparent bg-paper/0"
+      className={`sticky top-0 z-50 border-b border-line bg-paper/95 backdrop-blur transition-shadow duration-300 ${
+        scrolled ? "shadow-[0_1px_0_0_rgba(10,10,10,0.04)]" : ""
       }`}
     >
       <Container className="flex h-20 items-center justify-between">

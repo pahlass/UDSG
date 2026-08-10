@@ -5,7 +5,7 @@ import { differentiators } from "@/content/site";
 
 export function WhyPahlass() {
   return (
-    <section id="por-que-pahlass" className="border-b border-line py-24 md:py-32">
+    <section id="por-que-pahlass" className="border-b border-line bg-paper py-24 md:py-32">
       <Container>
         <Reveal>
           <SectionLabel>Por qué Pahlass</SectionLabel>
@@ -26,8 +26,11 @@ export function WhyPahlass() {
                 <h3 className="text-xl font-medium tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-base leading-relaxed text-muted">
+                <p className="text-base leading-relaxed text-ink/80">
                   {item.description}
+                </p>
+                <p className="text-sm leading-relaxed text-muted">
+                  {item.detail}
                 </p>
               </div>
             </Reveal>
